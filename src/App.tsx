@@ -8,12 +8,11 @@ function App() {
   return (
     <div className="bg-gray-900">
       <div className="relative pt-6 pb-2 px-2 lg:pt-8 flex items-center justify-between text-slate-700 font-semibold text-sm leading-6 dark:text-slate-200">
-        <div>               <a
-                  className="hover:text-sky-500 dark:hover:text-sky-400"
-                  href="/"
-                >
-                  Minions
-                </a></div>
+        <div>
+          <a className="hover:text-sky-500 dark:hover:text-sky-400" href="/">
+            Minions
+          </a>
+        </div>
         <div className="hidden md:flex items-center">
           <nav>
             <ul className="flex items-center space-x-8">
