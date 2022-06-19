@@ -18,16 +18,20 @@ interface Minion {
 
 const Minion = () => {
   const [health, setHealth] = useState(10);
+  const [maxHealth, setMaxHealth] = useState(10)
   const [minion, setMinion] = useState(getRandomCreature());
   const gameContext = useContext(GameState);
-  const { level, setLevel, damage, setMoney, clickDamage, time, setTime } = gameContext;
+  const { level, setLevel, damage, setMoney, clickDamage, time, setTime } =
+    gameContext;
 
   const handleDamage = (dmg: number) => {
     if (health - dmg <= 0) {
       setLevel((level: number) => level + 1);
       setHealth(Math.ceil(10 * Math.pow(1.15, level)));
+      setMaxHealth(Math.ceil(10 * Math.pow(1.15, level)));
       setMoney((money: number) => money + level * 3);
       setMinion(getRandomCreature());
+      setTime(10);
     } else {
       setHealth((health) => health - dmg);
     }
@@ -35,9 +39,10 @@ const Minion = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      handleDamage(damage)
-      if(time  <= 0) {
+      handleDamage(damage);
+      if (time <= 0) {
         setHealth(Math.ceil(10 * Math.pow(1.15, level)));
+        setMaxHealth(Math.ceil(10 * Math.pow(1.15, level)));
         setTime(10);
       }
       setTime((time: number) => time - 1);
@@ -48,16 +53,17 @@ const Minion = () => {
   const handleHit = () => {
     handleDamage(clickDamage);
   };
-
+console.log('width?',`${Math.round((health / maxHealth) * 100)} %` )
   return (
     <div
-      className="border-2 border-black p-10 bg-slate-800 flex-1 flex flex-col justify-center items-center rounded active:bg-slate-700 select-none"
+      className="border-2 border-black p-10 bg-slate-800 flex-1 flex flex-col justify-center items-center rounded active:bg-slate-700 select-none text-center text-white"
       onClick={handleHit}
     >
-      <div className="text-center text-white">
-        <div>Health: {health}</div>
-        <div>Time left: {time}s</div>
+      {health}
+      <div className="h-6 w-52 border-2 bg-red-800">
+        <div className="bg-green-800 h-full" style={{width: `${Math.round((health / maxHealth) * 100)}%`}}/>
       </div>
+      <div>Time left: {time}s</div>
       <img src={minion} alt="Creature" className="h-20 w-20" />
     </div>
   );
