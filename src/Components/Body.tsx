@@ -6,7 +6,7 @@ interface Props  {
 
 const Body : React.FC<Props> = ({children}  : Props) => {
   return (
-    <div>{children}</div>
+    <div className="flex justify-center items-center">{children}</div>
   )
 }
 
