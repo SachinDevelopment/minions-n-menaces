@@ -56,15 +56,15 @@ const Minion = () => {
 console.log('width?',`${Math.round((health / maxHealth) * 100)} %` )
   return (
     <div
-      className="border-2 border-black p-10 bg-slate-800 flex-1 flex flex-col justify-center items-center rounded active:bg-slate-700 select-none text-center text-white"
+      className="border-2 border-black p-10 bg-slate-800 flex-1 flex flex-col justify-center items-center rounded active:bg-slate-900 select-none text-center text-white ease-in duration-300 cursor-pointer"
       onClick={handleHit}
-    >
-      {health}
-      <div className="h-6 w-52 border-2 bg-red-800">
-        <div className="bg-green-800 h-full" style={{width: `${Math.round((health / maxHealth) * 100)}%`}}/>
-      </div>
+      >
       <div>Time left: {time}s</div>
-      <img src={minion} alt="Creature" className="h-20 w-20" />
+      {health}
+      <div className="h-4 w-52 bg-red-800">
+        <div className="bg-green-800 h-full ease-in-out duration-200" style={{width: `${Math.round((health / maxHealth) * 100)}%`}}/>
+      </div>
+      <img src={minion} alt="Creature" className="h-20 w-20 mt-2" />
     </div>
   );
 };

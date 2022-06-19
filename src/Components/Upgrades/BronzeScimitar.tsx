@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import StoreItem from "./StoreItem";
-import bronzedagger from "../../Assets/StoreItems/bronzedagger.png";
+import bronzescimitar from "../../Assets/StoreItems/bronzescimitar.png";
 
 const baseCost = 5;
 const baseDamage = 2;
@@ -13,7 +13,7 @@ const BronzeScimitar = () => {
 
   return (
     <StoreItem
-    img={bronzedagger}
+    img={bronzescimitar}
       name="Bronze Scimitar"
       itemDamage={itemDamage}
       setItemDamage={setItemDamage}
