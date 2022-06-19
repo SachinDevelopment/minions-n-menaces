@@ -1,10 +1,10 @@
 import React from 'react'
 
 interface Props  {
-    children: JSX.Element
+    children: React.ReactNode
 }
 
-const Body = ({ children}  : Props) => {
+const Body : React.FC<Props> = ({children}  : Props) => {
   return (
     <div>{children}</div>
   )

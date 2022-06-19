@@ -1,16 +1,19 @@
 import { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Header from "./Components/header";
+import Header from "./Components/Header";
 import Body from "./Components/Body";
+import Minion from "./Components/Minion";
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [level, setLevel] = useState(1);
 
   return (
     <div>
       <Header />
       <Body>
-        <div>Hello</div>
+        <div>Level: {level}</div>
+        <Minion level={level} setLevel={setLevel} />
       </Body>
     </div>
   );
